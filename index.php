@@ -19,14 +19,14 @@
 	<?php require_once 'proccess.php'; ?>
 
   <!-- Sesssion Messege -->
-
+  
   <?php if(isset($_SESSION['messege'])): ?>
 
-  <div class="alert alert-<?=$_SESSION['msg_type'] ?>">
-      <?php 
-        echo "<center><marquee><h3>".$_SESSION['messege']."</h3></marquee></center>";
-        unset ($_SESSION['messege']);
-        ?>
+  <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
+    <?php 
+      echo "<center><marquee><h3>".$_SESSION['messege']."</h3></marquee></center>";
+      unset ($_SESSION['messege']);
+    ?>
   </div>
   <?php endif; ?>
 
@@ -38,8 +38,8 @@
     $show->fetch_assoc();
   ?>
 <!--Result Table -->
-  <div class="container">
-    <table class="table table-hover">
+  <div class="container bg-dark">
+    <table class="table table-hover ">
   <thead>
     <tr>
       <th scope="col">Serial No</th>
@@ -55,7 +55,7 @@
     <tr>
       <td><?php echo $row['id']; ?> </td>
       <td><?php echo $row['Name']; ?> </td>
-      <td><?php echo $row['Phone']; ?> </td>
+      <td><?php echo $row['phone']; ?> </td>
       <td><?php echo $row['Email']; ?> </td>
       <td>
         <a href="index.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning">EDIT </a>

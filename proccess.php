@@ -13,25 +13,27 @@ if ($conn->connect_error) {
 }
 
 session_start();
+
     $update = false;
     $id = 0;
     $name = '';
  	$phone = '';
  	$email = '';
- if (isset($_POST['save'])){
+//Cretae part
+if (isset($_POST['save'])){
 
  	$name = $_POST['naam'];
  	$phone = $_POST['ph'];
  	$email = $_POST['email'];
 
- 	$conn-> query("INSERT INTO info(Name,phone,Email) VALUES('$name','$phone','$email')")or die("Connection failed: " . $conn->connect_error);
+ 	$conn->query("INSERT INTO info(Name,phone,Email) VALUES('$name','$phone','$email')")or die("Connection failed: " . $conn->connect_error);
 
  	$_SESSION ['messege'] = "Information has been Saved!";
  	$_SESSION ['msg_type'] = "success";
  	header("location: index.php");
 
  }
-
+//Delete Part
  if (isset($_GET['delete'])){
 
  	$id = $_GET['delete'];
