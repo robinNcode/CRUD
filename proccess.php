@@ -31,7 +31,7 @@ if (isset($_POST['save'])){
 
  	$_SESSION ['messege'] = "Information has been removed!";
  	$_SESSION ['msg_type'] = "danger";
- 	header("location: index.php"); //redirect to index.php //redirect to index.php
+ 	header("location: index.php"); //redirect to index.php
  }
 
 //Update Part
