@@ -19,7 +19,6 @@
 	<?php require_once 'proccess.php'; ?>
 
   <!-- Sesssion Messege -->
-  
   <?php if(isset($_SESSION['messege'])): ?>
 
   <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
@@ -32,9 +31,9 @@
 
 
   <?php 
-    $conn = new mysqli('localhost', 'root','', 'robin')or die("Connection failed: " . $conn->connect_error);
+    include 'db_connection.php'; //creating connection with DB
+    
     $show = $conn->query("SELECT * FROM info") or die ("Failed ". $conn->error);
-
     $show->fetch_assoc();
   ?>
 <!--Result Table -->
