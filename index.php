@@ -66,11 +66,6 @@
   </tbody>
 </table>
 </div>
-  <?php 
-
-  ?>
-
-
   <!-- Form -->
 	<form action="proccess.php" method="POST" class="">
     <input type="hidden" name ="id" value ="<?= $id ?>">
