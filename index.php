@@ -1,6 +1,11 @@
+<?php
+  require_once 'proccess.php';
+  include 'db_connection.php'; //creating connection with DB
+  $show = $conn->query("SELECT * FROM info") or die("Failed " . $conn->error);
+?>
+
 <!doctype html>
 <html lang="en">
-
 <head>
   <title>Crud</title>
   <meta charset="utf-8">
@@ -16,11 +21,8 @@
 </head>
 
 <body>
-  <?php require_once 'proccess.php'; ?>
-
   <!-- Sesssion Messege -->
   <?php if (isset($_SESSION['messege'])) : ?>
-
     <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
       <?php
       echo "<center><marquee><h3>" . $_SESSION['messege'] . "</h3></marquee></center>";
@@ -29,13 +31,6 @@
     </div>
   <?php endif; ?>
 
-
-  <?php
-  include 'db_connection.php'; //creating connection with DB
-
-  $show = $conn->query("SELECT * FROM info") or die("Failed " . $conn->error);
-  $show->fetch_assoc();
-  ?>
   <!--Result Table -->
   <div class="container bg-dark">
     <table class="table table-hover ">
@@ -60,7 +55,6 @@
               <a href="index.php?edit=<?php echo $row['id']; ?>" class="btn btn-warning">EDIT </a>
               <a href="proccess.php?delete=<?php echo $row['id']; ?>" class="btn btn-danger">DELETE</a>
             </td>
-
           </tr>
         <?php endwhile; ?>
         </tbody>

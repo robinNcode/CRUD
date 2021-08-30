@@ -41,8 +41,9 @@ if (isset($_GET['edit'])) {
 
 	$update = true;
 	$result = $conn->query("SELECT * FROM info WHERE id =$id") or die("Failed " . $conn->error);
-	if (count($result)) {
-		$row = $result->fetch_array(); //getting value from DB for index.php form values
+	$row = $result->fetch_array(); //getting value from DB for index.php form values
+
+	if (!empty($row)) {
 		$name = $row['name'];
 		$phone = $row['phone'];
 		$email = $row['email'];
@@ -56,12 +57,11 @@ if (isset($_POST['update'])) {
 	$phone = $_POST['ph'];
 	$email = $_POST['email'];
 
-	$conn->query("UPDATE info SET Name='$name',Phone='$phone',Email='$email' WHERE id=$id") or die("Connection failed: " . $conn->connect_error);
+	$conn->query("UPDATE info SET name='$name', phone='$phone', email='$email' WHERE id=$id") or die("Connection failed: " . $conn->connect_error);
 
 	$_SESSION['messege'] = "Information has been Updated!";
 	$_SESSION['msg_type'] = "info";
 	header("location: index.php"); //redirect to index.php
-
 }
 
 
